@@ -75,15 +75,15 @@ if(require.main == module) {
     if(program.url){
        rest.get(program.url).on('complete', function(result){
          //fs.writeFileSync("url.html", result);
-        var $ = cheerio.load(result); 
+        htmlFile = cheerio.load(result); 
        });
-       //htmlFile = "url.html";
-       htmlFile = $('*');
+       //htmlFile = pepe;
+       //htmlFile = $('*');
     }
 
-//    var checkJson = checkHtmlFile(htmlFile, program.checks);
-//    var outJson = JSON.stringify(checkJson, null, 4);
-//    console.log(outJson);
+    var checkJson = checkHtmlFile(htmlFile, program.checks);
+    var outJson = JSON.stringify(checkJson, null, 4);
+    console.log(outJson);
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
